@@ -1,0 +1,76 @@
+/* Style bo*/
+
+body {
+    display: flex;
+    overflow-x: hidden;
+}
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #343a40;
+    color: white;
+    position: fixed;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+.sidebar.hide {
+    transform: translateX(-250px);
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+.sidebar .nav-link {
+    padding: 15px;
+}
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+    transition: margin-left 0.3s ease;
+}
+.content.expanded {
+    margin-left: 50px;
+    padding-left: 50px;
+}
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.collapsed-bar {
+    width: 75px;
+    height: 100vh;
+    background: #343a40;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    transform: translateX(-50px);
+}
+.collapsed-bar.show {
+    transform: translateX(0);
+}
+.collapsed-bar .nav-link {
+    padding: 15px;
+    text-align: center;
+}
+.collapsed-bar .nav-link i {
+    font-size: 1.5em;
+}
+
+
