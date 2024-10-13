@@ -37,8 +37,8 @@ public class ControlerPedido extends HttpServlet {
         }
         
         String Op = request.getParameter("Op");
-        ArrayList<pedido> ListaPe = new ArrayList<pedido>();
-        ArrayList<detallePedido> ListaPeD = new ArrayList<detallePedido>();
+        ArrayList<pedido> ListaPe = new ArrayList<>();
+        ArrayList<detallePedido> ListaPeD = new ArrayList<>();
         conexionBD conBD = new conexionBD();
         Connection conn = conBD.Connected();
         PreparedStatement ps;
@@ -68,7 +68,7 @@ public class ControlerPedido extends HttpServlet {
                 break;
             case "Consultar":
                 try {
-                    String Id_Pedido = request.getParameter("Id");
+                    String Id_Pedido = request.getParameter("Id_Pedido");
                     String sql = "SELECT * FROM t_pedido WHERE Id_Pedido=?";
                     ps = conn.prepareStatement(sql);
                     ps.setString(1, Id_Pedido);

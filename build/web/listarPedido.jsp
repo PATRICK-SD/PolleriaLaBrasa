@@ -15,7 +15,7 @@
     <body>
         <%@include file="menu.jsp" %>
         <div class="content">
-            <div class="container mt-6" style="margin-left: 0px;margin-right: 0px;">
+            <div class="container mt-6" style="margin-left: 0px; margin-right: 0px;">
                 <div class="table-container">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h1>Listado de Pedido</h1>
@@ -53,4 +53,4 @@
             </div>
         </div>
     </body>
-</html>
+</html
