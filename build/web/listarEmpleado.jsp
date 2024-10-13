@@ -21,7 +21,7 @@
                         <h1>Listado de Empleados</h1>
                         <a class="btn btn-primary" href="ControlerEmpleado?Op=Nuevo">Crear Empleado</a>
                     </div>
-                    <table class="table table-hover" style="width:100%" >
+                    <table class="table table-hover" style="width:100%; border: 1px solid #ddd;" >
                         <thead class="table-dark">  
                             <tr>
                                 <th>Id Usuario</th>

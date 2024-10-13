@@ -11,6 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes</title>
+        <style>
+            tr:nth-child(even){
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #ddd;
+            }
+        </style>
     </head>
     <body>
         <%@include file="menu.jsp" %>
@@ -21,7 +29,7 @@
                         <h1>Listado de Clientes</h1>
                         <a class="btn btn-primary" href="ControlerCliente?Op=Nuevo">Crear Cliente</a>
                     </div>
-                    <table class="table table-hover" style="width:100%" >
+                    <table class="table table-hover" style="width:100%; border: 1px solid #ddd;" >
                         <thead class="table-dark">  
                             <tr>
                                 <th>Id Cliente</th>

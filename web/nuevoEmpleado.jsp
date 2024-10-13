@@ -65,8 +65,8 @@
                         </tr>                
                         </table>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="modificar">Grabar</button>
-                </form>
+                    <button type="submit" class="btn btn-primary" name="modificar">Grabar</button> 
+                </form>            
             </div>
             </div>
         </div>

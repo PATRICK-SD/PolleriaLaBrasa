@@ -141,6 +141,10 @@ public class ControlerEmpleado extends HttpServlet {
             case "Nuevo":
                 request.getRequestDispatcher("nuevoEmpleado.jsp").forward(request, response);
                 break;
+            /*boton cancelar*/
+            /*case "Cancelar":
+                request.getRequestDispatcher("listarEmpleado").forward(request, response);
+                break;*/
         }
     }
 

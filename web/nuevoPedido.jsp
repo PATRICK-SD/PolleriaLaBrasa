@@ -176,28 +176,28 @@
         <div class="container">
             <div class="form-container">
                 <form action="ControlerPedidoN" method="post" style="width: 100%;">
-                    <h1 class="title">Agregar Nuevo Producto</h1>
+                    <h1 class="title" style="font-size: 25px;">Agregar Nuevo Producto</h1>
                     <div class="box">
-                        <h2>Detalle del Cliente</h2>
+                        <h2 style="font-size: 22px;">Detalle del Cliente</h2>
                         <div class="form-group">
                             <!--<label for="client-code">DNI del Cliente</label>-->
                             <input value="${c.DNI}" type="text" name="codigocliente" class="form-control" placeholder="DNI del Cliente">
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="accion" value="BuscarCliente" class="btn-buscar">
+                            <input type="submit" name="accion" value="BuscarCliente" class="btn-buscar" style="background-color: green;">
                         </div>
                         <div class="form-group">
                             <input type="text" name="nombrescliente" value="${c.nombres}" class="form-nombre" placeholder="Datos del cliente">
                         </div>
                     </div>
                     <div class="box">
-                        <h2>Detalle del Producto</h2>
+                        <h2 style="font-size: 22px;">Detalle del Producto</h2>
                         <div class="form-group">
                             <!--<label for="product-code">Código del Producto</label>-->
                             <input value="${p.id}" type="text" name="codigoproducto" class="form-control" placeholder="Código Producto">
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="accion" value="BuscarProducto" class="btn-buscar">
+                            <input type="submit" name="accion" value="BuscarProducto" class="btn-buscar" style="background-color: green;">
                         </div>
                         <div class="form-group">
                             <input type="text" name="nomproducto" value="${p.descripcion}" class="form-nombre" placeholder="Descripción del producto">
@@ -211,13 +211,13 @@
                         <div class="form-group">
                             <input type="text" name="stock" value="${p.cantidad}" class="form-control" placeholder="Stock">
                         </div>
-                        <input type="submit" name="accion" value="Agregar" class="btn-agregando">
+                        <input type="submit" name="accion" value="Agregar" class="btn-agregando" style="background-color: blue;">
                     </div>
                 </form>
             </div>
 
             <div class="table-container">
-                <h2>Detalles del Pedido</h2>
+                <h2 style="font-size: 25px;">Detalles del Pedido</h2>
                 <div class="form-group">
                     <label for="id-pedido">ID Pedido:</label>
                     <input type="text" name="idpedido" value="${nserie}" class="form-control" readonly>
@@ -246,7 +246,7 @@
                                 <td class="action-buttons">
                                     <form action="ControlerPedidoN" method="post">
                                         <input type="hidden" name="id" value="${producto.idProductoV}">
-                                        <input type="submit" name="accion" value="delete" class="btn-delete">
+                                        <input type="submit" name="accion" value="delete" class="btn-delete" style="background-color: red;">
                                     </form>
                                 </td>
                             </tr>
@@ -268,8 +268,8 @@
                 </div>
                 <div class="btn-container">
                     <form action="ControlerPedidoN" method="post">
-                        <input type="submit" name="accion" value="GenerarVenta" class="btn-agregando">
-                        <input type="submit" name="accion" value="Cancelar" class="btn-agregando">
+                        <input type="submit" name="accion" value="GenerarVenta" class="btn-agregando" style="background-color: blue;">
+                        <input type="submit" name="accion" value="Cancelar" class="btn-agregando" style="background-color: red;">
                     </form>
                 </div>
             </div>

@@ -22,7 +22,7 @@
                         <h1>Listado de Productos</h1>
                         <a class="btn btn-primary" href="ControlerProducto?Op=NuevoProducto">Crear Producto</a>
                     </div>
-                    <table class="table table-hover" style="width:100%" >
+                    <table class="table table-hover" style="width:100%; border: 1px solid #ddd;" >
                         <thead class="table-dark">  
                             <tr>
                                 <th>Id Producto</th>
