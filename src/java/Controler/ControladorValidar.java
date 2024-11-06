@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Lenovo
+ * @author Patrick
  */
 @WebServlet(name = "ControladorValidar", urlPatterns = {"/ControladorValidar"})
 public class ControladorValidar extends HttpServlet {

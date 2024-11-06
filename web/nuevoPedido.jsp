@@ -166,8 +166,49 @@
                 border-radius: 4px;
                 text-align: right;
             }
-
+            
+            /* Estilo para campos con error */
+            /*.error {
+                border: 2px solid red;
+            }
+            .error-message {
+                color: red;
+                font-size: 0.9em;
+                display: none;
+            } */
         </style>
+        <!--<script>
+            function validateField(input, pattern, errorMessage) {
+                const value = input.value;
+                const errorSpan = input.nextElementSibling;
+
+                if (!pattern.test(value)) {
+                    input.classList.add("error");
+                    errorSpan.style.display = "inline";
+                    errorSpan.textContent = errorMessage;
+                } else {
+                    input.classList.remove("error");
+                    errorSpan.style.display = "none";
+                }
+            }
+
+            function validateForm() {
+                // Validar Apellidos y Nombres (solo letras)
+                const namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+                validateField(document.getElementById("apellidos"), namePattern, "No se permiten números ni signos en esta casilla");
+                validateField(document.getElementById("nombres"), namePattern, "No se permiten números ni signos en esta casilla");
+
+                // Validar DNI, Teléfono y Móvil (solo números)
+                const numberPattern = /^[0-9]+$/;
+                validateField(document.getElementById("DNI"), numberPattern, "Solo se permiten números en esta casilla");
+                validateField(document.getElementById("telefono"), numberPattern, "Solo se permiten números en esta casilla");
+                validateField(document.getElementById("movil"), numberPattern, "Solo se permiten números en esta casilla");
+                
+                // Evitar el envío del formulario si hay errores
+                const errors = document.querySelectorAll(".error");
+                return errors.length === 0;
+            }
+        </script>-->
     </head>
     <body>
         <%@ include file="menu.jsp" %>
