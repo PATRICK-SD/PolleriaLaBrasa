@@ -159,9 +159,13 @@ public class ControlerEmpleado extends HttpServlet {
         String Direccion = request.getParameter("direccion");
         String Telefono = request.getParameter("telefono");
         String Password = request.getParameter("password");
+        //String Password = hashPassword(request.getParameter("password")); // Hasheamos la contraseña
 
         System.out.println("Parámetros recibidos: " + Id + ", " + Nombres + ", " + Apellidos + ", " + DNI + ", " + Cargo + ", " + Direccion + ", " + Telefono + ", " + Password);
         
+        // Aplica el hash a la contraseña
+        //String hashedPassword = hashPassword(Password);
+
         empleados empl = new empleados();
 
         empl.setId(Id);
@@ -172,6 +176,7 @@ public class ControlerEmpleado extends HttpServlet {
         empl.setDireccion(Direccion);
         empl.setTelefono(Telefono);
         empl.setPassword(Password);
+        //empl.setPassword(hashedPassword); // Guarda la contraseña hasheada
 
         conexionBD conBD = new conexionBD();
         Connection conn = conBD.Connected();
@@ -201,6 +206,9 @@ public class ControlerEmpleado extends HttpServlet {
                 ps.setString(6, empl.getDireccion());
                 ps.setString(7, empl.getTelefono());
                 ps.setString(8, empl.getPassword());
+                // En la inserción de un nuevo empleado
+                //ps.setString(8, empl.getPassword()); // Inserta la contraseña hasheada
+
                 ps.executeUpdate();
                 System.out.println("Nuevo empleado insertado correctamente.");
 
@@ -214,6 +222,9 @@ public class ControlerEmpleado extends HttpServlet {
                 ps.setString(5, empl.getDireccion());
                 ps.setString(6, empl.getTelefono());
                 ps.setString(7, empl.getPassword());
+                // En la actualización de un empleado existente
+                //ps.setString(7, empl.getPassword()); // Actualiza la contraseña hasheada
+
                 ps.setString(8, empl.getId());
                 ps.executeUpdate();
             }
@@ -241,6 +252,23 @@ public class ControlerEmpleado extends HttpServlet {
         }
         pCodigo = 'E' + pCodigo;
         return (pCodigo);
+    }
+    
+    // Método para generar hash de la contraseña con SHA-256
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
