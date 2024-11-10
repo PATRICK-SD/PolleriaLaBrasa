@@ -1,6 +1,10 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.List"%>
+<%@page import="Entidades.empleados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    List<empleados> ListaE = (List<empleados>) request.getAttribute("ListaE");
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,13 +18,65 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        
+        <style>
+            /* Estilos adicionales para imagen de usuario y nombre */
+            .sidebar {
+                /*position: relative;*/
+                display: flex;
+                flex-direction: column;
+                /*height: 100vh;
+                padding: 20px;
+                background-color: #f0f0f0;*/
+            }
+            .user-info {
+                margin-top: auto;
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #ddd;
+            }
+            .user-img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+            .user-name {
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .user-cargo {
+                font-weight: bold;
+                font-size: 0.9em;
+                color: green;
+            }
+            .logout-link {
+                margin-top: 10px;
+                font-size: 0.9em;
+                color: #007bff;
+                text-decoration: none;
+                
+            }
+            .logout-link:hover {
+                text-decoration: underline;
+            }
+        </style>
 
     </head>
     <body>
-        <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             if (session.getAttribute("user") == null) {
                 response.sendRedirect("login.jsp");
             }
+            
+            // Simular los datos de sesión del usuario
+            //String userName = (String) session.getAttribute("userName");
+            String userImage = (String) session.getAttribute("userImage"); // URL de imagen
+            //if (userName == null) userName = "Usuario Ejemplo"; // Valor por defecto
+            if (userImage == null) userImage = "IMG/user.jpg"; // Imagen por defecto
+
         %>
         <button class="toggle-btn">☰</button>
         <div class="sidebar">
@@ -41,10 +97,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ControlerEmpleado?Op=Listar"><i class="fas fa-users"></i> Empleados</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="CerrarSesion"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="CerrarSesion"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>-->
                 </li>
             </ul>
+            
+            <!-- Sección de información del usuario en la parte baja del menú -->
+            <div class="user-info">
+                <img src="<%= userImage %>" alt="Imagen del Usuario" class="user-img">
+                <div class="user-name">${user.getNombres()} ${user.getApellidos()}</div>
+                <div class="user-cargo">${user.getCargo()}</div>
+                <a href="CerrarSesion" class="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            </div>
+                
         </div>
         <div class="collapsed-bar">
             <ul class="nav flex-column">
