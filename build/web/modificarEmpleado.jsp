@@ -10,7 +10,7 @@
 <%@page import="Entidades.empleados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    List<empleados> ListaE = (List<empleados>) request.getAttribute("ListaE");
+    List<empleados> Lista = (List<empleados>) request.getAttribute("Lista");
 %>
 <!DOCTYPE html>
 <html lang="es">
